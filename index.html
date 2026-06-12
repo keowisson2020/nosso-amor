@@ -6,12 +6,26 @@
 <title>Nossa História ❤️</title>
 
 <style>
+
 body{
     margin:0;
     font-family:Arial, sans-serif;
     background:#ffe6eb;
     text-align:center;
     color:#333;
+}
+
+#telaInicial{
+    height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+}
+
+#conteudo{
+    display:none;
 }
 
 header{
@@ -32,6 +46,8 @@ h1{
 
 .secao{
     padding:40px 20px;
+    max-width:900px;
+    margin:auto;
 }
 
 .botao{
@@ -43,14 +59,40 @@ h1{
     font-size:18px;
     cursor:pointer;
 }
+
+.botao:hover{
+    transform:scale(1.05);
+}
+
 </style>
 </head>
 
 <body>
 
+<div id="telaInicial">
+
+<h1>❤️ Para minha futura esposa ❤️</h1>
+
+<p>
+Algumas pessoas entram na nossa vida e mudam tudo.
+Vc foi a melhor delas.
+</p>
+
+<p>
+Este é apenas um pequeno jeito de mostrar o quanto cada momento ao seu lado é especial pra mim. ❤️
+</p>
+
+<button class="botao" onclick="abrirSurpresa()">
+✨ Abrir Surpresa ✨
+</button>
+
+</div>
+
+<div id="conteudo">
+
 <header>
 <h1>❤️ Nossa História ❤️</h1>
-<p>Uma surpresa feita especialmente para você</p>
+<p>Uma surpresa feita especialmente pra vc ❤️</p>
 </header>
 
 <div class="contador">
@@ -59,15 +101,20 @@ h1{
 </div>
 
 <div class="secao">
-<h2>📸 Nossos Momentos</h2>
-<p>Aqui vamos colocar nossas fotos.</p>
+<h2>🎮 Onde tudo começou</h2>
+
+<p>
+Às vezes eu paro pra pensar em como a vida gosta de surpreender a gente.
+</p>
+
+<p>
+Quem diria q uma simples partida de Free Fire me faria conhecer alguém tão especial ksks?
+</p>
 </div>
 
 <div class="secao">
-<h2>💌 Uma Mensagem Especial</h2>
-<p>
-Você é uma das melhores coisas que aconteceram na minha vida.
-</p>
+<h2>📸 Nossos Momentos</h2>
+<p>Em breve nossas fotos estarão aqui ❤️</p>
 </div>
 
 <div class="secao">
@@ -75,19 +122,29 @@ Você é uma das melhores coisas que aconteceram na minha vida.
 <button class="botao">Tocar Música</button>
 </div>
 
+</div>
+
 <script>
 
-const dataInicio = new Date("2025-01-01");
+const dataInicio = new Date("2023-01-06");
+
+function abrirSurpresa(){
+    document.getElementById("telaInicial").style.display = "none";
+    document.getElementById("conteudo").style.display = "block";
+}
 
 function atualizarContador(){
+
     const agora = new Date();
 
     const diferenca = agora - dataInicio;
 
-    const dias = Math.floor(diferenca / (1000*60*60*24));
+    const dias = Math.floor(
+        diferenca / (1000 * 60 * 60 * 24)
+    );
 
     document.getElementById("tempo").innerHTML =
-    dias + " dias ❤️";
+        dias + " dias ❤️";
 }
 
 atualizarContador();
