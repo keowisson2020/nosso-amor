@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nossa História ❤️</title>
+
+<style>
+body{
+    margin:0;
+    font-family:Arial, sans-serif;
+    background:#ffe6eb;
+    text-align:center;
+    color:#333;
+}
+
+header{
+    background:#ff4d6d;
+    color:white;
+    padding:50px 20px;
+}
+
+h1{
+    font-size:3em;
+}
+
+.contador{
+    margin:40px;
+    font-size:2em;
+    font-weight:bold;
+}
+
+.secao{
+    padding:40px 20px;
+}
+
+.botao{
+    background:#ff4d6d;
+    color:white;
+    padding:15px 25px;
+    border:none;
+    border-radius:10px;
+    font-size:18px;
+    cursor:pointer;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>❤️ Nossa História ❤️</h1>
+<p>Uma surpresa feita especialmente para você</p>
+</header>
+
+<div class="contador">
+⏳ Estamos juntos há:
+<div id="tempo"></div>
+</div>
+
+<div class="secao">
+<h2>📸 Nossos Momentos</h2>
+<p>Aqui vamos colocar nossas fotos.</p>
+</div>
+
+<div class="secao">
+<h2>💌 Uma Mensagem Especial</h2>
+<p>
+Você é uma das melhores coisas que aconteceram na minha vida.
+</p>
+</div>
+
+<div class="secao">
+<h2>🎵 Nossa Música</h2>
+<button class="botao">Tocar Música</button>
+</div>
+
+<script>
+
+const dataInicio = new Date("2025-01-01");
+
+function atualizarContador(){
+    const agora = new Date();
+
+    const diferenca = agora - dataInicio;
+
+    const dias = Math.floor(diferenca / (1000*60*60*24));
+
+    document.getElementById("tempo").innerHTML =
+    dias + " dias ❤️";
+}
+
+atualizarContador();
+setInterval(atualizarContador,1000);
+
+</script>
+
+</body>
+</html>
