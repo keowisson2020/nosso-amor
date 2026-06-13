@@ -68,13 +68,31 @@ h1{
     font-size:18px;
     cursor:pointer;
     transition:0.3s;
-    box-shadow:0 4px 12px rgba(255,77,109,0.4);
+    box-shadow:0 0 20px rgba(255,77,109,0.6);
 }
 
 .botao:hover{
     transform:scale(1.05);
 }
 
+    @keyframes pulsar{
+    0%{
+        transform:scale(1);
+    }
+
+    50%{
+        transform:scale(1.08);
+    }
+
+    100%{
+        transform:scale(1);
+    }
+}
+
+#telaInicial .botao{
+    animation:pulsar 2s infinite;
+}
+    
     .foto-card{
     margin-top:30px;
 }
