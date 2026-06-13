@@ -48,6 +48,7 @@ h1{
     padding:40px 20px;
     max-width:900px;
     margin:auto;
+    line-height:1.8;
 }
 
 .botao{
@@ -70,6 +71,196 @@ h1{
 <body>
 
 <div id="telaInicial">
+
+<h1>❤️ Para minha futura esposa ❤️</h1>
+
+<p>
+Algumas pessoas entram na nossa vida e mudam tudo.<br>
+Vc foi a melhor delas.
+</p>
+
+<p>
+Este é apenas um pequeno jeito de mostrar o quanto cada momento ao seu lado é especial pra mim. ❤️
+</p>
+
+<button class="botao" onclick="abrirSurpresa()">
+✨ Abrir Surpresa ✨
+</button>
+
+</div>
+
+<div id="conteudo">
+
+<header>
+<h1>❤️ Nossa História ❤️</h1>
+<p>Uma surpresa feita especialmente pra vc ❤️</p>
+</header>
+
+<div class="contador">
+⏳ Estamos juntos há:
+<div id="tempo"></div>
+</div>
+
+<div class="secao">
+
+<h2>🎮 Onde tudo começou</h2>
+
+<p>
+Às vezes eu paro pra pensar em como a vida gosta de surpreender a gente.
+</p>
+
+<p>
+Quem diria q uma simples partida de Free Fire me faria conhecer alguém tão especial ksks? Entre tantas pessoas q poderiam ter aparecido naquele dia, foi vc. E o mais engraçado é q eu não fazia ideia de q aquela partida seria o começo de uma história q significaria tanto pra mim. 🥺❤️
+</p>
+
+<p>
+Com o tempo, as conversas foram ficando mais frequentes, os dias mais leves e eu comecei a perceber q sempre esperava por uma mensagem sua. Vc foi entrando na minha vida aos poucos, sem pressa, mas de um jeito q eu nunca mais consegui imaginar meus dias sem vc ksks
+</p>
+
+<h2>🌎 Mesmo longe, sempre perto</h2>
+
+<p>
+A distância nunca foi fácil.
+</p>
+
+<p>
+Teve saudade, teve vontade de estar junto e momentos em q tudo o q eu queria era poder te abraçar. Mas, mesmo com tantos quilômetros entre nós, vc sempre conseguiu fazer eu me sentir perto de vc. 💕
+</p>
+
+<p>
+E talvez seja isso q tornou tudo ainda mais especial. Porque antes mesmo de te encontrar pessoalmente, vc já tinha conquistado um espaço enorme no meu coração ksks
+</p>
+
+<h2>✈️ O dia q eu nunca vou esquecer</h2>
+
+<p>
+Durante muito tempo eu imaginei como seria te encontrar.
+</p>
+
+<p>
+Pensei em várias situações, imaginei nossas conversas, imaginei o q eu sentiria naquele momento...
+</p>
+
+<p>
+Mas a verdade é q nd me preparou pra quando eu finalmente te vi ksks
+</p>
+
+<p>
+Eu estava nervoso, muito nervoso. Meu coração parecia estar acelerado mais do q nunca. 😅❤️
+</p>
+
+<p>
+Só q, no instante em q meus olhos encontraram os seus, todo aquele nervosismo se misturou com uma sensação q eu nem sei explicar direito ksks.
+</p>
+
+<p>
+Eu simplesmente fiquei admirando vc ksks
+</p>
+
+<p>
+Vc estava linda.
+</p>
+
+<p>
+Mais linda do q qualquer foto, e mais linda do q tudo q eu tinha imaginado ksks.
+</p>
+
+<p>
+Naquele momento eu só conseguia agradecer por finalmente estar ali, ao seu lado🥰❤️
+</p>
+
+<h2>❤️ Pra vc</h2>
+
+<p>
+Talvez eu não seja a melhor pessoa do mundo pra demonstrar tudo o q sente através de palavras.
+</p>
+
+<p>
+Mas se tem uma coisa q eu quero q vc saiba, é q vc se tornou uma das partes mais importantes da minha vida🥺❤️
+</p>
+
+<p>
+Vc está presente nos meus pensamentos, nos meus sorrisos e em muitos dos momentos q tornam meus dias melhores. 🥰❤️
+</p>
+
+<p>
+E se hoje eu fiz essa surpresa, foi porque vc merece saber o quanto é especial pra mim ksks
+</p>
+
+<p>
+Obrigado por cada conversa, cada risada, cada momento e por ser exatamente quem vc é. ❤️✨
+</p>
+
+</div>
+
+<div class="secao">
+<h2>📸 Nossos Momentos</h2>
+<p>Em breve nossas fotos estarão aqui ❤️</p>
+</div>
+
+<div class="secao">
+<h2>🎵 Nossa Música</h2>
+<button class="botao">Tocar Música</button>
+</div>
+
+</div>
+
+<script>
+
+const dataInicio = new Date("2023-01-06");
+
+function abrirSurpresa(){
+    document.getElementById("telaInicial").style.display = "none";
+    document.getElementById("conteudo").style.display = "block";
+}
+
+function atualizarContador(){
+
+    const agora = new Date();
+
+    let anos = agora.getFullYear() - dataInicio.getFullYear();
+    let meses = agora.getMonth() - dataInicio.getMonth();
+    let dias = agora.getDate() - dataInicio.getDate();
+
+    if(dias < 0){
+        meses--;
+
+        const ultimoMes = new Date(
+            agora.getFullYear(),
+            agora.getMonth(),
+            0
+        );
+
+        dias += ultimoMes.getDate();
+    }
+
+    if(meses < 0){
+        anos--;
+        meses += 12;
+    }
+
+    const horas = agora.getHours();
+    const minutos = agora.getMinutes();
+    const segundos = agora.getSeconds();
+
+    document.getElementById("tempo").innerHTML =
+    `
+    ❤️ ${anos} anos<br>
+    ❤️ ${meses} meses<br>
+    ❤️ ${dias} dias<br>
+    ❤️ ${horas} horas<br>
+    ❤️ ${minutos} minutos<br>
+    ❤️ ${segundos} segundos
+    `;
+}
+
+atualizarContador();
+setInterval(atualizarContador,1000);
+
+</script>
+
+</body>
+</html><div id="telaInicial">
 
 <h1>❤️ Para minha futura esposa ❤️</h1>
 
