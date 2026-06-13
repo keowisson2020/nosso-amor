@@ -92,6 +92,27 @@ h1{
 .foto-card img:hover{
     transform:scale(1.03);
 }
+
+    .heart{
+    position:fixed;
+    bottom:-20px;
+    font-size:20px;
+    animation:subir 8s linear forwards;
+    pointer-events:none;
+    z-index:9999;
+}
+
+@keyframes subir{
+    0%{
+        transform:translateY(0);
+        opacity:1;
+    }
+
+    100%{
+        transform:translateY(-110vh);
+        opacity:0;
+    }
+}
     
 </style>
 </head>
@@ -381,6 +402,28 @@ function atualizarContador(){
 atualizarContador();
 setInterval(atualizarContador,1000);
 
+    function criarCoracao(){
+
+    const coracao = document.createElement("div");
+
+    coracao.classList.add("heart");
+
+    coracao.innerHTML = "❤️";
+
+    coracao.style.left = Math.random() * 100 + "vw";
+
+    coracao.style.fontSize =
+        (Math.random() * 20 + 15) + "px";
+
+    document.body.appendChild(coracao);
+
+    setTimeout(() => {
+        coracao.remove();
+    }, 8000);
+}
+
+setInterval(criarCoracao, 500);
+    
 </script>
 
 <audio id="musica" loop>
