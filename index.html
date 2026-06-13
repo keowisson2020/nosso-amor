@@ -368,7 +368,7 @@ Obrigado por fazer parte da minha vida. ❤️
 
 <script>
 
-const dataInicio = new Date("2023-01-06");
+const dataInicio = new Date("2023-01-06T00:00:00");
 
 function abrirSurpresa(){
     document.getElementById("telaInicial").style.display = "none";
@@ -381,39 +381,34 @@ function atualizarContador(){
 
     const agora = new Date();
 
+    const diferenca = agora - dataInicio;
+
+    const segundos = Math.floor(diferenca / 1000);
+    const minutos = Math.floor(segundos / 60);
+    const horas = Math.floor(minutos / 60);
+    const dias = Math.floor(horas / 24);
+
     let anos = agora.getFullYear() - dataInicio.getFullYear();
     let meses = agora.getMonth() - dataInicio.getMonth();
-    let dias = agora.getDate() - dataInicio.getDate();
-
-    if(dias < 0){
-        meses--;
-
-        const ultimoMes = new Date(
-            agora.getFullYear(),
-            agora.getMonth(),
-            0
-        );
-
-        dias += ultimoMes.getDate();
-    }
 
     if(meses < 0){
         anos--;
         meses += 12;
     }
 
-    const horas = agora.getHours();
-    const minutos = agora.getMinutes();
-    const segundos = agora.getSeconds();
-
     document.getElementById("tempo").innerHTML =
     `
-    ❤️ ${anos} anos<br>
-    ❤️ ${meses} meses<br>
-    ❤️ ${dias} dias<br>
-    ❤️ ${horas} horas<br>
-    ❤️ ${minutos} minutos<br>
-    ❤️ ${segundos} segundos
+    <br>
+    <strong style="font-size:30px;">
+    ${anos} anos e ${meses} meses ❤️
+    </strong>
+
+    <br><br>
+
+    ❤️ ${dias.toLocaleString('pt-BR')} dias juntos<br>
+    ❤️ ${horas.toLocaleString('pt-BR')} horas juntos<br>
+    ❤️ ${minutos.toLocaleString('pt-BR')} minutos juntos<br>
+    ❤️ ${segundos.toLocaleString('pt-BR')} segundos juntos
     `;
 }
 
